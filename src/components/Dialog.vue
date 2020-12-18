@@ -9,26 +9,36 @@
 
 			<v-card>
 				<v-card-title class="headline grey lighten-2">
-					Privacy Policy
+					Github Repositories
 				</v-card-title>
 
-				<v-card-text>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-					ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					Duis aute irure dolor in reprehenderit in voluptate velit
-					esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-					occaecat cupidatat non proident, sunt in culpa qui officia
-					deserunt mollit anim id est laborum.
-				</v-card-text>
-
+				<div class="repos-container">
+					<a
+						href="https://github.com/RezaYazdi87/itrap1test/tree/Resnet110"
+						target="_blank"
+						><v-btn
+							><v-icon>mdi-language-python</v-icon>Backend</v-btn
+						></a
+					>
+					<a
+						href="https://github.com/parsagholipour/simple-classifier-backend"
+						target="_blank"
+						><v-btn
+							><v-icon>mdi-language-php</v-icon>Backend</v-btn
+						></a
+					>
+					<a
+						href="https://github.com/parsagholipour/simple-classifier-frontend"
+						target="_blank"
+						><v-btn><v-icon>mdi-vuejs</v-icon>Frontend</v-btn></a
+					>
+				</div>
 				<v-divider></v-divider>
 
 				<v-card-actions>
 					<v-spacer></v-spacer>
 					<v-btn color="primary" text @click="active = false">
-						I accept
+						Close
 					</v-btn>
 				</v-card-actions>
 			</v-card>
@@ -38,12 +48,29 @@
 <script>
 export default {
 	props: {
-		activeDefault: Boolean,
+		activeDefault: {
+			type: Boolean,
+			default: false,
+		},
 	},
-	data: () => {
+	data() {
 		return {
 			active: this.activeDefault,
 		};
 	},
 };
 </script>
+<style scoped>
+.repos-container {
+	display: flex;
+	justify-content: center;
+	padding-top: 31px;
+	padding-bottom: 30px;
+}
+
+.repos-container a {
+    text-decoration: none;
+    flex: 0.2 0.3 2%;
+    margin: 0 1%;
+}
+</style>

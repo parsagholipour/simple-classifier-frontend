@@ -52,13 +52,3 @@ export default {
 	}),
 };
 </script>
-<style scoped>
-.footer-text {
-	color: #979797;
-}
-</style>
-<style>
-.position-relative {
-	position: relative !important;
-}
-</style>

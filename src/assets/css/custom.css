@@ -5,3 +5,11 @@
 .lower-opacity {
     opacity: 0.8;
 }
+
+.footer-text {
+	color: #979797;
+}
+
+.position-relative {
+	position: relative !important;
+}
