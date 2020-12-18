@@ -1,28 +1,64 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<v-app>
+		<v-app-bar app color="black" dark>
+			<div class="d-flex align-center">
+				<span class="display-2">I-Trap</span>
+			</div>
+
+			<v-spacer></v-spacer>
+
+			<!-- <v-btn
+				href="https://github.com/vuetifyjs/vuetify/releases/latest"
+				target="_blank"
+				text
+			>
+				<span class="mr-2">How it works?</span>
+				<v-icon>mdi-open-in-new</v-icon>
+			</v-btn> -->
+			<Dialog :defaultActive="showDialog" />
+		</v-app-bar>
+
+		<v-main>
+			<Classify />
+		</v-main>
+		<SnackBar
+			:text="this.$root.notif.text"
+			:defaultActive="this.$root.notif.active"
+		/>
+		<v-card>
+			<p class="text-center footer-text">
+				Made by Reza Yazdi and Parsa Gholipour
+			</p>
+		</v-card>
+	</v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Classify from "./components/Classify.vue";
+import SnackBar from "./components/SnackBar";
+import Dialog from "./components/Dialog";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+	name: "App",
 
+	components: {
+		Classify,
+		SnackBar,
+		Dialog,
+	},
+
+	data: () => ({
+		showDialog: false,
+	}),
+};
+</script>
+<style scoped>
+.footer-text {
+	color: #979797;
+}
+</style>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.position-relative {
+	position: relative !important;
 }
 </style>
