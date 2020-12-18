@@ -23,17 +23,25 @@
 							It is a <span class="typing"></span>
 						</h1>
 					</vue-typed-js>
-					<h1 v-else-if="!processing">It is a {{ result.object }} ({{ result.possibility}}%)</h1>
-					<processing :string="processingStatus" v-else class="text-center">
+					<h1 v-else-if="!processing">
+						It is a {{ result.object }} ({{ result.possibility }}%)
+					</h1>
+					<processing
+						:string="processingStatus"
+						v-else
+						class="text-center"
+					>
 					</processing>
-					<p v-if="!processing && result">Time: {{ result.time }} sec</p>
+					<p v-if="!processing && result">
+						Time: {{ result.time }} sec
+					</p>
 				</div>
 			</v-col>
 
 			<v-col class="mb-5" cols="12">
 				<v-row class="justify-center" no-gutters>
 					<v-col
-					cols="3"
+						cols="3"
 						class="mr-2 ml-2 mb-4 position-relative"
 						v-for="i in 8"
 						:key="i"
@@ -90,26 +98,25 @@ export default {
 			}
 			this.processing = true;
 			this.beingProcessed = imageName;
-			this.processingStatus = 'Connecting'
+			this.processingStatus = "Connecting";
 			var evtSource = new EventSource(
 				"http://10.75.48.204/script.php?image_name=" + imageName
 			);
 			evtSource.onopen = () => {
 				console.log("Connection to server opened.");
-				this.processingStatus = "Connected"
+				this.processingStatus = "Connected";
 			};
 			evtSource.onmessage = (e) => {
 				let data = JSON.parse(e.data);
-				console.log(data.event == 'start')
-				if (data.event == 'start') {
-					this.processingStatus = 'Processing'
+				console.log(data.event == "start");
+				if (data.event == "start") {
+					this.processingStatus = "Processing";
 				} else {
-					console.log(data)
-					this.result = data.result
-					this.processing = false
+					console.log(data);
+					this.result = data.result;
+					this.processing = false;
 					this.beingProcessed = false;
 				}
-				
 			};
 			evtSource.onerror = () => {
 				evtSource.close();
@@ -130,7 +137,7 @@ export default {
 		processing: false,
 		result: false,
 		beingProcessed: null,
-		processingStatus: 'Connecting'
+		processingStatus: "Connecting",
 	}),
 };
 </script>
