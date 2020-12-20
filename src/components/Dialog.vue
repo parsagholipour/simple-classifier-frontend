@@ -12,26 +12,29 @@
 					Github Repositories
 				</v-card-title>
 
-				<div class="repos-container">
-					<a
+				<div class="row repos-container">
+					<v-col cols="12" sm="4">
+				<a
 						href="https://github.com/RezaYazdi87/itrap1test/tree/Resnet110"
 						target="_blank"
 						><v-btn
 							><v-icon>mdi-language-python</v-icon>Backend</v-btn
-						></a
-					>
-					<a
+						></a>
+					</v-col>
+					<v-col cols="12" sm="4">
+						<a
 						href="https://github.com/parsagholipour/simple-classifier-backend"
 						target="_blank"
 						><v-btn
 							><v-icon>mdi-language-php</v-icon>Backend</v-btn
-						></a
-					>
-					<a
+						></a>
+					</v-col>
+					<v-col cols="12" sm="4">
+						<a
 						href="https://github.com/parsagholipour/simple-classifier-frontend"
 						target="_blank"
-						><v-btn><v-icon>mdi-vuejs</v-icon>Frontend</v-btn></a
-					>
+						><v-btn><v-icon>mdi-vuejs</v-icon>Frontend</v-btn></a>	
+					</v-col>
 				</div>
 				<v-divider></v-divider>
 
@@ -62,10 +65,11 @@ export default {
 </script>
 <style scoped>
 .repos-container {
-	display: flex;
-	justify-content: center;
-	padding-top: 31px;
-	padding-bottom: 30px;
+	margin: 0!important;	
+}
+.repos-container div{
+	padding: 2px;
+	text-align: center;
 }
 
 .repos-container a {
